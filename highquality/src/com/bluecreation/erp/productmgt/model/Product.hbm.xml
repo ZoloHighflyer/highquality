@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bluecreation.erp.productmgt.model">
+
+	<class name="Product" 
+		table="t_erp_productmanagement_product">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+                  
+        <property name="createDate" 
+                  column="createDate"   />
+	
+		<property name="name"
+  				  column="f_product_name"
+				  />
+		
+		<property name="specification"
+  				  column="f_product_specification"
+				  />
+			
+		<property name="material"
+  				  column="f_product_material"
+				  />
+		
+		<property name="color"
+  				  column="f_product_color"
+				  />
+		
+		<property name="price"
+  				  column="f_product_price"
+				  />
+		
+		
+		<property name="mark"
+  				  column="f_product_mark"
+				  />
+				  
+		<property name="designer"
+  				  column="f_product_designer"
+				  />
+				  
+		<property name="cartographer"
+  				  column="f_product_cartographer"
+				  />
+		
+		<property name="assessor"
+  				  column="f_product_assessor"
+				  />
+		<property name="approved"
+  				  column="f_product_approved"
+				  />
+        <property name="validdate"
+  				  column="f_product_validdate"
+				  />
+        
+        <property name="assemblephoto"
+  				  column="f_product_assemblephoto"
+				  />
+        
+        <property name="effectphoto"
+  				  column="f_product_effectphoto"
+				  />
+        
+		<property name="photo"
+  				  column="f_product_photo"
+				  />
+		 <set name="parts"  lazy="true" cascade="all" outer-join="true"  >
+			<key>
+				<column name="f_productid" />
+			</key>
+			<one-to-many class="com.bluecreation.erp.productmgt.model.ProductPart" />
+		</set>
+	   </class>
+      
+</hibernate-mapping>

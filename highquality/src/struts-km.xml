@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+	<package name="km" extends="default" namespace="/admin/km">
+	  
+	  <action name="kmrecordsmgmt" class="KnowledgeMgmtAction" method="knowledgeRecordsMgmt">
+		<!--  	<result name="success">kmrecordsmgmt.jsp</result>	--> 
+			<result name="success">createkmrecord.jsp</result>			 	
+	  </action>
+	   <action name="viewrecords" class="KnowledgeMgmtAction" method="viewKnowledgeRecords">
+		 	<result name="success">kmrecords.jsp</result>		 	
+	  </action>
+	  <action name="addrecord" class="KnowledgeMgmtAction" method="addRecord">
+		 	<result name="success">createkmrecord.jsp</result>		 	
+	  </action>
+	  <action name="initeditrecord" class="KnowledgeMgmtAction" method="initeditRecord">
+		 	<result name="success">editkmrecord.jsp</result>		 	
+	  </action>
+	  <action name="saverecord" class="KnowledgeMgmtAction" method="saveRecord">
+		 	<result type="redirect" name="success">kmrecordsmgmt.action</result>		 	
+	  </action>
+	  <action name="viewrecord" class="KnowledgeMgmtAction" method="viewRecord">
+		 	<result name="success">viewkmrecord.jsp</result>		 	
+	  </action>
+	  <action name="delrecord" class="KnowledgeMgmtAction" method="delRecord">
+		 	<result type="redirect" name="success">kmrecordsmgmt.action</result>		 	
+	  </action>
+	  <action name="query" class="KnowledgeMgmtAction" >
+		 	<result  name="success">queryrecords.jsp</result>		 	
+	  </action>
+	  <action name="queryrecords" class="KnowledgeMgmtAction" method="queryRecords">
+		 	<result  name="success">queryrecords.jsp</result>			 	
+	  </action>
+	  <action name="kmcategorymgmt" class="KnowledgeMgmtAction" method="mgmtCategory">
+		 	<result name="success">kmcategorymgmt.jsp</result>		 	
+	  </action>
+	  <action name="kmcategorytree" class="KnowledgeMgmtAction" method="categoryTree">
+		 	<result name="success">categorytree.jsp</result>		 	
+	  </action>
+	  <action name="addcategory" class="KnowledgeMgmtAction" method="addCategory">
+		 	<result name="success">createCategory.jsp</result>		 	
+	  </action>
+	  <action name="initcategory" class="KnowledgeMgmtAction" method="initEditCategory">
+		 	<result name="success">editCategory.jsp</result>		 	
+	  </action>
+	   <action name="savecategory" class="KnowledgeMgmtAction" method="saveCategory">
+		 	<result name="success" >createkcsuccess.jsp</result> 	
+	  </action>
+	   <action name="deletecategory" class="KnowledgeMgmtAction" method="deleteCategory">
+		 	<result type="redirect" name="success">kmcategorymgmt.action</result>	
+		 	<result name="error" >deletekcmsg.jsp</result> 
+	  </action>
+	</package>
+	
+</struts>

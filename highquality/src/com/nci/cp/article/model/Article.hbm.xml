@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.article.model">
+
+	<class name="Article" 
+		table="t_article">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="createDate" 
+                  column="createDate"   />
+                  
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+                  
+		<property name="title"
+  				  column="title"
+				  length="100"/>
+				  
+		<property name="brief"
+  				  column="brief"
+				  length="400"/>
+				  
+		<property name="titlePic"
+  				  column="titlePic"
+				  length="400"/>
+				  
+		<property name="content"
+  				  column="content"
+				  />
+		<property name="is_deleted"
+			      column="is_deleted"
+			      />
+		<property name="deleteDate" 
+                  column="deleteDate"   />
+		
+	</class>
+    
+</hibernate-mapping>

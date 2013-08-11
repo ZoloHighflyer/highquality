@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+    <!-- service begin -->
+    
+    
+    <bean id="fittingsService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.productmgt.service.FittingService">
+                <property name="fittingsDao"     ref="fittingsDao"/>           
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="productService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.productmgt.service.ProductService">
+                <property name="productDao"     ref="productDao"/> 
+                <property name="productPartDao"     ref="productPartDao"/>            
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="productmgmtService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.productmgt.service.ProductMgmtService">
+                <property name="productService"     ref="productService"/>  
+                <property name="fittingsService"    ref="fittingsService"/>             
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="inventoryService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.inventory.service.InventoryService">
+                <property name="inventoryDao"     ref="inventoryDao"/>
+                <property name="productService"     ref="productService"/>
+                <property name="fittingsService"    ref="fittingsService"/>                         
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="inventoryBillService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.inventory.service.InventoryBillService">
+                <property name="inventoryBillDao"         ref="inventoryBillDao"/> 
+                <property name="inventoryBillItemDao"     ref="inventoryBillItemDao"/>
+                <property name="inventoryService" ref="inventoryService" />                         
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="contactFacede"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.contact.service.ContactFacede">
+                <property name="contactService"     ref="contactService"/>                
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="contactService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.bluecreation.erp.contact.service.ContactService">
+                <property name="contactDao"         ref="contactDao"/> 
+                     
+            </bean>
+        </property>       
+    </bean> 
+</beans>

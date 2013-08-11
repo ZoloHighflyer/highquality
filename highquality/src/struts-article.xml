@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>	
+	<package name="article" extends="struts-default"  namespace="/article">
+	 
+		<action name="showArticleIndex" class="ArticleManagerAction" method="showArticleIndex">
+		 	<result name="success" >articleIndex.jsp</result>		 	
+		</action>
+		
+		<action name="showArticleList" class="ArticleManagerAction" method="showArticleList">
+		 	<result name="success" >articleList.jsp</result>		 	
+		</action>
+		
+		<action name="showArticleDetail" class="ArticleManagerAction" method="showArticleDetail">
+		 	<result name="success" >articleDetail.jsp</result>		 	
+		</action>
+		
+		<action name="addArticle" class="ArticleManagerAction" method="addArticle">
+		 	<result name="success" >createArticle.jsp</result>		 	
+		</action>
+		
+		
+		<action name="saveArticle" class="ArticleManagerAction" method="saveArticle">
+			<param name="savePath">/articleTitlePic</param>
+			<result name="input">createArticle_fail.jsp</result>
+			<result name="error">createArticle_fail.jsp</result>
+		 	<result  name="success" type="redirect">
+				<param name="location">showArticleList.action</param>
+			</result>	 	 	
+		</action>
+		
+		<action name="deleteArticle" class="ArticleManagerAction" method="deleteArticle">
+			<result type="redirect" name="success">
+				<param name="location">showArticleList.action</param>
+			</result>			
+		</action>
+		
+		<action name="showUpdateArticle" class="ArticleManagerAction" method="showUpdateArticle">
+		 	<result name="success" >updateArticle.jsp</result>	
+		</action>
+		
+		<action name="updateArticle" class="ArticleManagerAction" method="updateArticle">
+		 	<result type="redirect" name="success">
+				<param name="location">showArticleList.action</param>
+			</result>	
+		</action>
+	</package>
+    
+</struts>

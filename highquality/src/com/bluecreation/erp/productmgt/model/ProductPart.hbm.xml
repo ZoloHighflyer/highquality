@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bluecreation.erp.productmgt.model">
+
+	<class name="ProductPart" 
+		table="t_erp_productmanagement_productcomponent">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+                  
+        <property name="createDate" 
+                  column="createDate"   />
+	
+		
+		<property name="componentId"
+  				  column="f_productcomponentid"
+				  />
+			
+		<property name="componentType"
+  				  column="f_composing_type"
+				  />
+		
+		<property name="quantity"
+  				  column="f_quantity"
+				  />
+		
+		<many-to-one name="product" 
+                     column="f_productid" 
+                     class="com.bluecreation.erp.productmgt.model.Product"
+                     cascade="all"
+                     outer-join="true"/>
+	   </class>
+      
+</hibernate-mapping>

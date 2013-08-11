@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="GBK" ?>
+<views>
+  <render id="treetmenu">
+   <head title="test result">
+      <link  rel="StyleSheet" href="jscomponents/dtree/dtree.css" type="text/css" />
+      <uicomponent-jsscript type="TYPE_REL" src="jscomponents/dtree/dtree.js" />
+   </head>
+   <content>
+   <!--
+    <uicomponent-tree id="dTree" rspath="jscomponents/">    
+     
+      <jsscript>
+         d = new dTree('d','jscomponents/');//创建一个树对象   
+
+         d.add(0,-1,'系统菜单',''); 
+         d.add(1,0,'团队信息模块',''); 
+         d.add(2,1,'主题管理','info/topicmanagement.action','','main'); 
+         d.add(3,1,'团队信息','info/infomanagement.action','','main'); 
+         document.write(d);   
+      </jsscript>
+     
+      <construct-tree>
+	    <construct-arg name=""></construct-arg>
+	    <construct-arg name=""></construct-arg>
+	  </construct-tree>	
+	  
+	 </uicomponent-tree>
+	 -->
+	 
+	 <uicomponent-jsscript type="TYPE_SCRIPT">
+	     d = new dTree('d','jscomponents/');//创建一个树对象   
+
+         d.add(0,-1,'系统菜单',''); 
+         d.add(1,0,'团队信息模块',''); 
+         d.add(2,1,'主题管理','info/topicmanagement.action','','main'); 
+         d.add(3,1,'团队信息','info/infomanagement.action','','main'); 
+         d.add(4,1,'菜单管理','sysmgt/viewfuncs.action','','main'); 
+         d.add(5,1,'组织机构管理','sysmgt/viewdeps.action','','main');
+         d.add(6,1,'用户管理','sysmgt/viewusers.action','','main');  
+         d.add(6,1,'组管理','sysmgt/viewgroups.action','','main'); 
+         d.add(7,1,'角色管理','sysmgt/viewroles.action','','main'); 
+         d.add(8,1,'订餐管理','booking/bookmanagement.action','','main');  
+         document.write(d); 
+	 </uicomponent-jsscript>
+	 
+    </content>
+  </render>
+  <!-- topic input begin -->
+  <render id="tpinput">
+    <head title="forminput">
+    </head>
+    <content>
+      <uicomponent-form action="savetopicinfo.action">
+       <uicomponent-input label="标题" type="text" name="data.title"></uicomponent-input>
+       <uicomponent-input type="submit" value="提交"></uicomponent-input>
+      </uicomponent-form>
+    </content>    
+  </render>
+  <!-- topic input end -->
+  <!-- topic update begin -->
+  <render id="updatetopicinput">
+    <head title="forminput">
+    </head>
+    <content>
+      <uicomponent-form action="savetopicinfo.action">
+       <uicomponent-input  type="hidden" name="data.id" value="#data.id"></uicomponent-input>
+       <uicomponent-input  type="hidden" name="action" value="#data.id"></uicomponent-input>
+       <uicomponent-input label="标题" type="text" name="data.title" value="#data.title"></uicomponent-input>
+       <uicomponent-input type="submit" value="更新"></uicomponent-input>
+      </uicomponent-form>
+    </content>    
+  </render>
+  <!-- topic update end -->
+  <!-- topic management begin -->
+  <render id="topicmanagement">
+    <head title="topicmanagement">
+      <link  rel="StyleSheet" href="../jscomponents/style.css" type="text/css" />
+      <uicomponent-jsscript type="TYPE_REL" src="topicmanagement.js" />
+    </head>
+    <content>
+      <uicomponent-list  name="opts"   list="#data" var="topic" key="#topic.id">
+           <col name="标题"     value="#topic.title" />
+           <col name="更新日期" value="#topic.createTime" />
+      </uicomponent-list>       
+    </content>    
+  </render>
+  <!-- topic management end -->
+   <!-- topic input begin -->
+  <render id="tpinput">
+    <head title="forminput">
+    </head>
+    <content>
+      <uicomponent-form action="savetopicinfo.action">
+       <uicomponent-input label="标题" type="text" name="data.title"></uicomponent-input>
+       <uicomponent-input type="submit" value="提交"></uicomponent-input>
+      </uicomponent-form>
+    </content>    
+  </render>
+  <!-- topic record input begin -->
+  <render id="tprinput">
+    <head title="forminput">
+    </head>
+    <content>
+      <uicomponent-form action="saveinforec.action">
+        <uicomponent-select label="主题"  name="data.ifr.topicinfo.id" list="#data.sel"></uicomponent-select>
+        <uicomponent-input  label="标题" type="text" name="data.ifr.title"></uicomponent-input>
+       <uicomponent-input  label="内容" type="text" name="data.ifr.content"></uicomponent-input>
+       <uicomponent-input type="submit" value="提交"></uicomponent-input>
+      </uicomponent-form>
+    </content>    
+  </render>
+ <!-- topic record input end -->
+ <!-- system management begin -->
+  <render id="menumgt">
+    <head title="menumanagement">
+      <link  rel="StyleSheet" href="../jscomponents/style.css" type="text/css" />
+      <uicomponent-jsscript type="TYPE_REL" src="topicmanagement.js" />
+    </head>
+    <content>
+      <uicomponent-list  name="opts"   list="#data" var="menu" key="#menu.id">
+           <col name="菜单名"     value="#menu.name" />
+           <col name="菜单标识" value="#menu.viewid" />
+      </uicomponent-list>       
+    </content>    
+  </render>
+  <render id="menuinput">
+    <head title="forminput">
+    </head>
+    <content>
+    　　  <uicomponent-form action="saveinforec.action">
+        <uicomponent-select label="一级菜单"  name="data.ifr.topicinfo.id" list="#data.sel"></uicomponent-select>
+        <uicomponent-editable id="menutb" name="menutb" action="savemenu.action" itemname="data.menuitem" actionname="data.actionname">
+        </uicomponent-editable>
+      </uicomponent-form>
+    </content>    
+  </render>
+  <!-- system management end -->
+    <!-- lunch booking begin -->
+  <render id="blunchinput">
+    <head title="forminput">
+    </head>
+    <content>
+      <uicomponent-form action="savebookrecord.action">
+        <uicomponent-input label="姓名" type="text" name="data.name"></uicomponent-input>
+        <uicomponent-input label="套餐" type="text" name="data.menu"></uicomponent-input>
+        <uicomponent-input label="价格" type="text" name="data.price"></uicomponent-input>
+        <uicomponent-input type="submit" value="提交"></uicomponent-input>
+      </uicomponent-form>
+    </content>    
+  </render>
+  <render id="updateblunchinput">
+    <head title="forminput">
+    </head>
+    <content>
+      <uicomponent-form action="updatebookrecord.action">
+       <uicomponent-input  type="hidden" name="data.id" value="#data.id"></uicomponent-input>
+        <uicomponent-input label="姓名" type="text" name="data.name" value="#data.name"></uicomponent-input>
+        <uicomponent-input label="套餐" type="text" name="data.menu"  value="#data.menu"></uicomponent-input>
+        <uicomponent-input label="价格" type="text" name="data.price" value="#data.price"></uicomponent-input>
+        <uicomponent-input label="已付" type="text" name="data.payed"  value="#data.payed"></uicomponent-input>
+        <uicomponent-input type="submit" value="更新"></uicomponent-input>
+      </uicomponent-form>
+    </content>    
+  </render>
+  
+  
+  
+  <render id="blunchmanagement">
+    <head title="bookmanagement">
+      <link  rel="StyleSheet" href="../jscomponents/style.css" type="text/css" />
+      <uicomponent-jsscript type="TYPE_REL" src="topicmanagement.js" />
+    </head>
+    <content>
+      <uicomponent-list  name="opts"   list="#data" var="bkrec" key="#bkrec.id">
+           <col name="名称"     value="#bkrec.name" />
+           <col name="套餐" value="#bkrec.menu" />
+           <col name="价格" value="#bkrec.price" />
+           <col name="已付" value="#bkrec.payed" />
+           <col name="结算" value="#bkrec.balance" />
+      </uicomponent-list>       
+    </content>    
+  </render>
+  
+  <!-- lunch booking end -->
+  
+</views>

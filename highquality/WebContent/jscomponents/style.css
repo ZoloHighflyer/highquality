@@ -1,0 +1,63 @@
+body, th, td {
+  background-color: #FFFFFF;
+  font-family:MS Gothic;
+  font-size: 95%;
+}
+
+/** 'tooltip' block **/
+
+a.tooltip {
+    position:relative;
+    z-index:24; 
+    background-color:#ccc;
+    color:#000;
+    text-decoration:none;
+}
+
+a.tooltip:hover {
+     z-index:25; 
+     background-color:#ff0;
+}
+
+a.tooltip span.tooltip {
+     display: none;
+}
+
+a.tooltip:hover span.tooltip {
+    display:block;
+    position:float;
+    top:-2em; left:28em; width:5em;
+    border:1px solid #0cf;
+    background-color:#cff; color:#000;
+    text-align: center;
+}
+fieldset {
+  margin: 0.5em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #2E6794;
+}
+
+legend {
+  color: #2E6794;
+  font-family: "Trebuchet MS", Trebuchet, Arial, Helvetica, Sans-serif;
+  font-weight: bold;
+}
+
+label {
+  clear: both;
+  width: 40%;
+  float: left;
+  text-align: right;
+  margin: 0px 5px 10px 0px;
+}
+
+input {
+  color: #2E6794;
+  height: 18px;
+  background-color: #8DB7DF;
+  margin: 0px 0px 0px 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #2E6794;
+}

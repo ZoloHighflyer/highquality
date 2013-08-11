@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sunbow.website.view.model">
+
+	<class name="ViewProduct" table="t_sunbow_website_view_viewproduct">
+
+		<id name="id" column="eid" unsaved-value="null">
+			<generator class="native" />
+		</id>
+
+		<property name="modifyDate" column="f_modifyDate" />
+
+		<property name="createDate" column="f_createDate" />
+
+		<property name="order" column="f_order" />
+		
+        <many-to-one name="productEntity"
+			class="com.sunbow.erp.productlib.model.ProductEntity" 			
+			>
+			<column name="f_viewproduct_id" />
+		</many-to-one>
+		<many-to-one name="siteView"
+			class="com.sunbow.website.view.model.SiteView" 
+			foreign-key="FK_t_siteview_viewproduct_siteview" 
+			>
+			<column name="f_siteview_id" />
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>

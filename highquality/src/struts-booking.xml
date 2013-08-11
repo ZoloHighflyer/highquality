@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    
+	<package name="booking" extends="struts-default" namespace="/admin/booking">
+	   <result-types>
+          <result-type name="xml" class="XmlResult" />
+       </result-types>
+      <action name="bookmanagement" class="ManageBookingAction" >
+		 	<result type="xml">blunchmanagement</result>		 	
+	  </action>
+       <action name="addbrview" class="BookingAction"  method="initpage">
+		 	<result type="xml">blunchinput</result>	
+	   </action>	
+	   <action name="savebookrecord" class="BookingAction"  >
+		 	<result type="redirect" name="success" >bookmanagement.action</result>	
+	   </action>
+	   <action name="editbookrecord" class="UpdateBookViewAction" >
+		 	<result type="xml">updateblunchinput</result>		 	
+	   </action>
+	   <action name="updatebookrecord" class="UpdateBookAction" >
+		 	<result type="redirect" name="success" >bookmanagement.action</result>		 	
+	   </action>
+	   <action name="delbookrecord" class="DelBookAction" >
+		 	<result type="redirect" name="success" >bookmanagement.action</result>		 	
+	   </action>
+	  
+	</package>	
+	
+    
+</struts>

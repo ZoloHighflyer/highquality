@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    <import resource="/applicationContext-hibernate.xml" />
+    <import resource="/applicationContext-action.xml" />
+    <import resource="/applicationContext-booking-dao.xml" />
+    <import resource="/applicationContext-booking-service.xml" />
+    <import resource="/applicationContext-booking-action.xml" />
+    <import resource="/applicationContext-info-dao.xml" />
+    <import resource="/applicationContext-info-service.xml" />
+    <import resource="/applicationContext-info-action.xml" /> 
+    <import resource="/applicationContext-sysmgt-action.xml" /> 
+    <import resource="/applicationContext-sysmgt-service.xml" />
+    <import resource="/applicationContext-sysmgt-dao.xml" />
+    <import resource="/applicationContext-erp-dao.xml" />
+    <import resource="/applicationContext-erp-service.xml" />
+    <import resource="/applicationContext-erp-action.xml" /> 
+    <import resource="/applicationContext-km-action.xml"/>
+    <import resource="/applicationContext-km-service.xml"/> 
+    <import resource="/applicationContext-km-dao.xml"/>
+    <import resource="/applicationContext-productlib-action.xml"/>
+    <import resource="/applicationContext-productlib-service.xml"/> 
+    <import resource="/applicationContext-productlib-dao.xml"/>
+</beans>

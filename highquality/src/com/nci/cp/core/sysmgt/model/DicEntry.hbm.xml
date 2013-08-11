@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.core.sysmgt.model">
+
+	<class name="DicEntry" 
+		table="t_dicentry">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="createDate" 
+                  column="createDate"   />
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+		
+		<property name="name"
+  				  column="f_name"
+				  length="200"/>
+		<property name="identify"
+  				  column="f_identify"
+				  />			
+		
+		<many-to-one name="dicType" 
+                     column="f_dictypeid" 
+                     class="com.nci.cp.core.sysmgt.model.DicType"
+                     cascade="all"
+                     outer-join="true"/>
+	</class>
+
+</hibernate-mapping>

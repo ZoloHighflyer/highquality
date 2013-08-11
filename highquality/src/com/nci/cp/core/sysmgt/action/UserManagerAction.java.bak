@@ -1,0 +1,186 @@
+package com.nci.cp.core.sysmgt.action;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.util.StrutsUtil;
+import org.apache.velocity.tools.struts.StrutsUtils;
+
+import com.nci.cp.core.exception.ServiceException;
+import com.nci.cp.core.sysmgt.model.Func;
+import com.nci.cp.core.sysmgt.model.User;
+import com.nci.cp.core.sysmgt.service.ISysManagement;
+import com.nci.cp.core.sysmgt.vo.FuncVo;
+import com.nci.cp.core.sysmgt.vo.UserVo;
+import com.nci.cp.core.utils.WebUtils;
+import com.nci.cp.core.web.AbstractAction;
+import com.nci.cp.core.web.IAction;
+import com.nci.cp.ds.paging.Pagination;
+import com.nci.cp.teaminfo.info.vo.TopicInfoVo;
+/**
+ * @company BlueCreation Workspace
+ * @author  OliverChan 
+ * @version 0.1
+ * @date    2011-8-24 
+ */
+public class UserManagerAction extends AbstractAction {
+	
+	private static Log log = LogFactory.getLog(UserManagerAction.class);
+	
+	private UserVo  userVo;
+	
+	private ISysManagement sysmgmtService;
+	
+	public List<UserVo> userVos;
+	
+	public String newPassWord;
+	
+	public String errormessage;
+	
+	public Pagination pagi;
+
+	public Pagination getPagi() {
+		return pagi;
+	}
+
+	public void setPagi(Pagination pagi) {
+		this.pagi = pagi;
+	}
+
+	public List<UserVo> getUserVos() {
+		return userVos;
+	}
+
+	public void setUserVos(List<UserVo> userVos) {
+		this.userVos = userVos;
+	}
+
+	public void setSysmgmtService(ISysManagement sysmgmtService) {
+		this.sysmgmtService = sysmgmtService;
+	}
+
+	public UserVo getUserVo() {
+		return userVo;
+	}
+
+	public void setUserVo(UserVo userVo) {
+		this.userVo = userVo;
+	}
+	
+	public String getNewPassWord() {
+		return newPassWord;
+	}
+
+	public void setNewPassWord(String newPassWord) {
+		this.newPassWord = newPassWord;
+	}
+	
+	public String getErrormessage() {
+		return errormessage;
+	}
+
+	public void setErrormessage(String errormessage) {
+		this.errormessage = errormessage;
+	}
+
+	/**
+	 * 查询用户
+	 * @return
+	 * @throws ServiceException
+	 */
+	public String usersMain() throws ServiceException {
+		// userVos = sysmgmtService.findUsers();
+		// 分页查询
+		if (pagi == null) {
+			pagi = new Pagination();
+		}
+		userVos = sysmgmtService.findUsersByPage(pagi);
+		return SUCCESS;
+	}
+
+//	public List getUserVos() throws ServiceException {
+//		return sysmgmtService.findUsers();
+//	}
+
+	public String saveUser() throws ServiceException{
+		userVo = sysmgmtService.createOrUpdateUser(userVo);	
+		msg="selected";
+		WebUtils.getServletRequest().setAttribute(IAction.ACTION_MESSAGE, "success");
+		return SUCCESS;
+	}
+	
+	public String initedit() throws Exception {
+		if(userVo.getId() != null){
+			userVo=sysmgmtService.findUserById(userVo);
+		}
+
+
+		return super.initedit();
+	}	
+	
+	public String delete() throws Exception {
+		if (userVo.getId() != null) {
+			sysmgmtService.deleteUser(userVo);
+		}
+		return super.delete();
+	}
+	
+	/**
+	 * 修改密码
+	 */
+	public String modifyPassWord() {
+		try {
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setCharacterEncoding("GBK");
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			User user = (User) session.getAttribute("_LOGON_SESSION_USER");
+			userVo.setId(user.getId());
+			String result = sysmgmtService.modifyPassWord(userVo, newPassWord);
+			if ("false".equals(result)) {
+				errormessage = "输入的旧密码不正确";
+				// out.print("输入的旧密码不正确");
+				return ERROR;
+			} else {
+				// out.print("密码修改成功！");
+				errormessage = "密码修改成功！";
+				return SUCCESS;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			errormessage = "服务器错误";
+			return ERROR;
+		}
+	}
+
+	/**
+	 * 查询用户
+	 * @return
+	 * @throws ServiceException
+	 */
+	public String selectUser() throws ServiceException {
+		HttpServletRequest request=ServletActionContext.getRequest();
+		//userVos = sysmgmtService.findUsers();
+		// 分页查询
+		  if (pagi == null) {
+		 		pagi = new Pagination();
+		 	}
+		 	userVos = sysmgmtService.findUsersByPage(pagi);
+		request.setAttribute("userVos", userVos);
+
+		return SUCCESS;
+		
+	}
+}

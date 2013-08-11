@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+   
+     <bean id="FtMgmtAction" class="com.bluecreation.erp.productmgt.action.FittingsManagerAction" scope="request">
+        <property name="ftService" ref="fittingsService" />
+     </bean>
+      <bean id="ProductMgmtAction" class="com.bluecreation.erp.productmgt.action.ProductMgmtAction" scope="request">
+        <property name="productmgmtService" ref="productmgmtService" />
+     </bean>
+     <bean id="InventoryBillMgmtAction" class="com.bluecreation.erp.inventory.action.InventoryBillAction" scope="request">
+        <property name="inventoryBillService" ref="inventoryBillService" />
+        <property name="productmgmtService" ref="productmgmtService" />
+     </bean>
+     <bean id="InventoryMgmtAction" class="com.bluecreation.erp.inventory.action.InventoryAction" scope="request">
+        <property name="inventoryService" ref="inventoryService" />
+
+     </bean>
+     <bean id="ContactAction" class="com.bluecreation.erp.contact.action.ContactAction" scope="request">
+        <property name="contactFacede" ref="contactFacede" />
+
+     </bean>
+</beans>

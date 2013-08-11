@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.booking.model">
+
+	<class name="BookRecord" 
+		table="t_bookrecord">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+        <property name="createDate" 
+                  column="createDate"   />
+		
+		<property name="name"
+  				  column="f_name"
+				  length="45"/>
+		
+		<property name="menu"
+			      column="f_menu"
+			      length="50"/>
+			
+		<property name="price"
+			      column="f_price"
+			      />		      
+		<property name="payed"
+			      column="f_payed"
+			      />
+	    <property name="balance"
+			      column="f_balance"
+			      />
+	</class>
+    <query name="findBookingToday">
+         <![CDATA[select b from BookRecord b where b.createDate>? order by b.menu,b.modifyDate desc]]>
+    </query>
+</hibernate-mapping>

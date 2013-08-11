@@ -1,0 +1,126 @@
+package com.nci.cp.core.sysmgt.dao;
+
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.Hibernate;
+
+import com.nci.cp.core.dao.AbstractDao;
+import com.nci.cp.core.exception.DaoException;
+import com.nci.cp.core.model.IdEntity;
+import com.nci.cp.core.sysmgt.model.Group;
+import com.nci.cp.core.sysmgt.model.IUserInfo;
+import com.nci.cp.core.sysmgt.model.Role;
+import com.nci.cp.core.sysmgt.model.RoleToGroup;
+import com.nci.cp.core.sysmgt.model.User;
+import com.nci.cp.core.sysmgt.model.UserToGroup;
+import com.nci.cp.core.sysmgt.vo.UserVo;
+/**
+ * The interface for user.
+ * @company BlueCreation Workspace
+ * @author  yanfeng 
+ * @version 0.1
+ * @date    2011-08-04 
+ */
+public class UserDao extends AbstractDao implements IUserDao {
+	
+	private static Log log = LogFactory.getLog(UserDao.class);
+	
+	@Override
+	protected Class getDaoModel() {
+		return User.class;
+	}
+
+	public List<IUserInfo> authenticationUser(IUserInfo user)
+			throws DaoException {
+		try{
+			List entities = this.find("select u from " + getDaoModel().getName() + " u where u.userid='"+user.getProperty(IUserInfo.USER_ID)+"' and u.password='"+user.getProperty(IUserInfo.USER_PASS)+"'");
+			return entities;
+		}catch (DaoException e) {
+			e.printStackTrace();
+			log.error("UserDao.class:authenticationUser error!"
+					+ getDaoModel());
+			throw new DaoException(
+					"UserDao.class:authenticationUser error!");
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.nci.cp.core.sysmgt.dao.IUserDao#findRolesOfUser(com.nci.cp.core.sysmgt.model.IUserInfo)
+	 * 查找角色对应的菜单(注：各个角色对应的菜单可能会包含重复)
+	 */
+	public List<Role> findRolesOfUser(IUserInfo user) throws DaoException {
+		List<IdEntity> users = this.find("select u from User u where u.userid='" + user.getProperty(IUserInfo.USER_ID) + "'");
+		User usr = null;
+		if ((users != null)&&(users.size()>0)) {
+			usr = (User)users.get(0);
+		}
+		if (usr != null) {  
+			List<IdEntity> utgs = this.find("select utg from UserToGroup utg where utg.userid=" + usr.getId());
+			
+			List<Group> groups = new ArrayList<Group>();
+			// query group of user
+			// 查找与user相关的用户组
+			for (int i = 0;i < utgs.size(); i++) {
+				UserToGroup utg = (UserToGroup)utgs.get(i);
+				Group g = (Group)this.getHibernateTemplate().get(Group.class, utg.getGroupid());
+				groups.add(g);
+			}
+			
+			// 查找用户组对应的角色(注：各个用户组中可能会包含重复的角色)
+			Set<Role> roleSet = new HashSet<Role>();
+			for(int i = 0; i < groups.size(); i++) {
+				Group g = (Group)groups.get(i);    		
+				List<IdEntity> rtg = this.find("select rtg from RoleToGroup rtg where rtg.group.id = " + g.getId());
+				for (int j = 0; j < rtg.size(); j++){
+					RoleToGroup rtgentity = (RoleToGroup)rtg.get(j);
+					Role role = rtgentity.getRole();
+					System.out.println(role.getId());
+					roleSet.add(role);
+				}
+			}
+			
+			List<Role> l = new ArrayList<Role>();
+			for (Iterator<Role> i = roleSet.iterator(); i.hasNext();){
+				Role r = (Role) i.next();
+				l.add(r);
+			}
+
+			return l;
+		}
+		
+		return new ArrayList();
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.nci.cp.core.sysmgt.dao.IUserDao#modifyPassWord(com.nci.cp.core.sysmgt.vo.UserVo, java.lang.String)
+	 */
+	public void modifyPassWord(User user, String newPassWord) throws DaoException {
+		user.getPassword();
+		this.updateEntity(user);
+	}
+
+	/* 
+	 * @获取所有 用户 
+	 */
+	
+/*	public  List<User> getAllUser()	throws DaoException {
+			try{
+				List entities = this.find("select u from User u ");
+				return entities;
+			}catch (DaoException e) {
+				e.printStackTrace();
+			
+				throw new DaoException(
+						"UserDao.class:authenticationUser error!");
+			}
+	}
+				*/
+	
+}

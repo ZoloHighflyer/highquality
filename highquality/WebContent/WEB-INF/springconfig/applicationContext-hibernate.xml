@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	
+	<!-- 开始配置JDBC数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	  <!--
+        <property name="driverClassName"><value>org.hsqldb.jdbcDriver</value></property>
+        <property name="url"><value>jdbc:hsqldb:.;sql.enforce_strict_size=true</value></property>
+        <property name="username"><value>sa</value></property>
+        <property name="password"><value></value></property>
+	   -->
+	    <property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
+        <property name="url"><value>jdbc:mysql://127.0.0.1/highquality</value></property>
+        <property name="username"><value>root</value></property>
+        <property name="password"><value>root</value></property>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref bean="dataSource"/></property>
+        <property name="mappingResources">
+			<list>
+			    <value>com/nci/cp/core/model/CommonEntityExt.hbm.xml</value>
+			    <value>com/nci/cp/core/model/StringAttr.hbm.xml</value>			
+			    <value>com/nci/cp/teaminfo/info/model/InfoRecord.hbm.xml</value>
+			    <value>com/nci/cp/teaminfo/info/model/TopicInfo.hbm.xml</value>
+			    <value>com/nci/cp/booking/model/BookRecord.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/Menu.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/MenuItem.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/User.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/Group.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/UserToGroup.hbm.xml</value>  
+			    <value>com/nci/cp/core/sysmgt/model/Func.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/Operation.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/Department.hbm.xml</value> 
+			    <value>com/nci/cp/core/sysmgt/model/Role.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/RoleNode.hbm.xml</value> 
+			    <value>com/nci/cp/core/sysmgt/model/RoleToGroup.hbm.xml</value>
+			    <value>com/nci/cp/core/sysmgt/model/DicType.hbm.xml</value> 
+			    <value>com/nci/cp/core/sysmgt/model/DicEntry.hbm.xml</value>
+			    <value>com/bluecreation/erp/productmgt/model/Fittings.hbm.xml</value> 
+			    <value>com/bluecreation/erp/productmgt/model/Product.hbm.xml</value>  
+			    <value>com/bluecreation/erp/productmgt/model/ProductPart.hbm.xml</value>  
+			    <value>com/bluecreation/erp/inventory/model/Inventory.hbm.xml</value>
+			    <value>com/bluecreation/erp/inventory/model/InventoryBill.hbm.xml</value>
+			    <value>com/bluecreation/erp/inventory/model/InventoryBillItem.hbm.xml</value>  
+			    <value>com/nci/cp/teaminfo/km/model/KnowledgeCategory.hbm.xml</value> 
+			    <value>com/nci/cp/teaminfo/km/model/KnowledgeRecord.hbm.xml</value>
+			    <value>com/bluecreation/erp/contact/model/Contact.hbm.xml</value> 			    
+			    <value>com/sunbow/erp/productlib/model/ProductClassify.hbm.xml</value>
+			    <value>com/sunbow/erp/productlib/model/ProductEntity.hbm.xml</value>
+			    <value>com/sunbow/website/view/model/SiteView.hbm.xml</value>
+			    <value>com/sunbow/website/view/model/ViewProduct.hbm.xml</value> 
+			    
+			    <!-- Add By Shenq -->
+			    <value>com/nci/cp/article/model/Article.hbm.xml</value>      				  
+			</list>
+		</property>	
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.cache.provider_configuration_file_resource_path">/ehcache/ehcache-hibernate-local.xml</prop>
+				<prop key="hibernate.cache.use_minimal_puts">false</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_structured_entries">true</prop>
+				<prop key="hibernate.autoReconnect">true</prop>
+                <!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
+            </props>
+        </property>
+    </bean>
+    
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory"><ref local="sessionFactory"/></property>
+	</bean>
+
+	<bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="commonEntityExtDao" class="com.nci.cp.core.dao.CommonEntityExtDao" >
+       <property name="sessionFactory"  ref="sessionFactory"/>
+    </bean> 
+    
+    <bean id="commonEntityExtService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.nci.cp.core.service.CommonEntityExtService">
+                <property name="commonEntityExtDao"  ref="commonEntityExtDao"/>
+            </bean>
+        </property>       
+    </bean>
+</beans>

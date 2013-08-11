@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.workmgt.model">
+
+	<class name="WorkItem" 
+		table="t_workmgt_workitem">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+        <property name="createDate" 
+                  column="createDate"   />
+                  
+        <property name="workTitle"
+			      column="f_worktitle"
+			      /> 
+		
+		<property name="workContent"
+			      column="f_content"
+			      length="500"/>
+
+		<property name="owner"
+			      column="f_owner"
+			      />
+	   	
+        	
+	</class>
+
+</hibernate-mapping>

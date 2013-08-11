@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.core.sysmgt.model">
+
+	<class name="Department" 
+		table="t_department">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+        <property name="createDate" 
+                  column="createDate"   />
+		
+		<property name="pardepno"
+  				  column="f_pardepno"
+				  />
+		
+		<property name="depname"
+  				  column="f_depname"
+				  />
+			
+		<property name="descr"
+  				  column="f_descr"
+				  />
+		
+	   </class>
+       <query name="findAllDeps">
+         <![CDATA[select d from Department d]]>
+        </query>
+        <query name="findThreeLayersDeps">
+         <![CDATA[select d from Department d where d.pardepno in (select dp.id from Department dp where dp.pardepno='-1')]]>
+        </query>
+</hibernate-mapping>

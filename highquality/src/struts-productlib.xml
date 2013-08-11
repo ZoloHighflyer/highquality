@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+	<package name="productlib" extends="default" namespace="/admin/productlib">
+	  
+	  <action name="productmgmt" class="ProductLibMgmtAction" method="productLibMgmt">
+		<!--  	<result name="success">kmrecordsmgmt.jsp</result>	--> 
+			<result name="success">products.jsp</result>			 	
+	  </action>
+	  <action name="addproductentity" class="ProductLibMgmtAction" method="addProductEntity">
+		 	<result name="success">createproductentity.jsp</result>		 	
+	  </action>
+	   <action name="initeditproductentity" class="ProductLibMgmtAction" method="initEditProductEntity">
+		 	<result  name="success">editproductentity.jsp</result>	 	
+	  </action>
+	   <action name="saveproductentity" class="ProductLibMgmtAction" method="saveProductEntity">
+		 	<result type="redirect" name="success">productmgmt.action?productVo.query.productClassifyid=${productVo.productClassifyId}</result>	 	
+	  </action>
+	  <action name="delproductentity" class="ProductLibMgmtAction" method="deleteProductEntity">
+		 	<result type="redirect" name="success">productmgmt.action</result>		 	
+	   </action>
+	  <action name="viewproductentity" class="ProductLibMgmtAction" method="viewProductEntity">
+		 	<result  name="success">viewproduct.jsp</result>	 	
+	  </action>
+	  
+	  <action name="productclassifymgmt" class="ProductLibMgmtAction" method="mgmtCategory">
+		<!--  	<result name="success">kmrecordsmgmt.jsp</result>	--> 
+			<result name="success">categorymgmt.jsp</result>			 	
+	  </action>
+	  <action name="categorytree" class="ProductLibMgmtAction" method="categorytree">
+		 	<result name="success">categorytree.jsp</result>		 	
+	  </action>
+	  <action name="addcategory" class="ProductLibMgmtAction" method="addCategory">
+		 	<result name="success">createCategory.jsp</result>		 	
+	  </action>
+	   <action name="initeditcategory" class="ProductLibMgmtAction" method="initEditProductClassify">
+		 	<result name="success">editcategory.jsp</result>		 	
+	  </action>
+	   <action name="savecategory" class="ProductLibMgmtAction" method="saveCategory">
+		 	<result name="success" >createpcsuccess.jsp</result> 		 	
+	  </action>
+	  <action name="delcategory" class="ProductLibMgmtAction" method="deleteCategory">
+		 	<result type="redirect" name="success">productclassifymgmt.action</result>		 	
+	   </action>
+	</package>
+	
+</struts>

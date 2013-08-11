@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.article.model">
+
+	<class name="RArticleLabel" 
+		table="t_r_article_label">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="createDate" 
+                  column="createDate"   />
+                  
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+		<property name="title"
+  				  column="title"
+				  length="100"/>
+		<property name="articleId"
+			      column="article_eid"
+			      />
+		<property name="labelId" 
+                  column="label_eid"   />
+		
+	</class>
+    
+</hibernate-mapping>

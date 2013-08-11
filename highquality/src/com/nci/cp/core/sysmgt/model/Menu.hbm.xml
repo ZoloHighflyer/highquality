@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.core.sysmgt.model">
+
+	<class name="Menu" 
+		table="t_menu">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+        <property name="createDate" 
+                  column="createDate"   />
+		
+		<property name="name"
+  				  column="name"
+				  length="20"/>
+		
+		<property name="viewid"
+			      column="viewid"
+			      length="50"/>
+			
+		
+        <set name="menuitems"  lazy="true" inverse="true" 
+			cascade="all-delete-orphan"  order-by="modifyDate desc" >
+			<key>
+				<column name="menuid" />
+			</key>
+			<one-to-many class="com.nci.cp.core.sysmgt.model.MenuItem" />
+		</set>
+		<query name="findValidMenus">
+         <![CDATA[select m from Menu m]]>
+        </query>
+	</class>
+    
+</hibernate-mapping>

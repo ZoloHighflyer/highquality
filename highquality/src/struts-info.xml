@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   
+    <!--  
+    <package name="modelDriven" extends="default" namespace="/md">   
+		<action name="modelDrivenResult" class="ModelDrivenAction">
+			<result>modelDrivenResult.jsp</result>
+		</action>	  
+		<action name="modelDriven" class="ModelDrivenAction" method="input">
+		 	<result>modelDriven.jsp</result>
+		 	<interceptor-ref name="basicStack"/>
+		</action>		
+	</package>
+	-->
+	<package name="info" extends="default" namespace="/admin/info">
+	  <action name="infomanagement" class="InfoManageAction" method="initadd">
+		 	<result name="success">infomangement.jsp</result>		 	
+	  </action>
+	  <!-- 
+	  <action name="topicmanagement" class="InfoManageAction" method="initadd">
+		 	<result name="success">topicmangement.jsp</result>		 	
+	  </action>
+	   -->
+	  <action name="topicmanagement" class="ManageTopicAction" >
+		 	<result type="xml">topicmanagement</result>		 	
+	  </action>
+	  <action name="addinforec" class="InputTopicRecordAction"  >
+		 	<result type="xml">tprinput</result>			 	
+	  </action>
+	  <!-- 
+	  <action name="saveinforec" class="InfoManageAction" method="saveInfoRecord">
+		 	<result type="redirect" name="success">infomanagement.action</result>
+		 	<result name="input">editinforec.jsp</result>
+		 	<result name="error">editinforec.jsp</result>			 	
+	  </action>
+	   -->
+	   <action name="saveinforec" class="SaveTopicRecordAction" >
+		 	<result type="redirect" name="success">infomanagement.action</result>		 		 	
+	  </action>
+	  <action name="addtopicinfo" class="InfoManageAction"  method="initadd">
+		 	<result name="success">edittopicinfo.jsp</result>		 	
+	  </action>
+	  
+	  <action name="addtpview" class="TopicAction"  method="initpage">
+		 	<result type="xml">tpinput</result>	
+	  </action>		 	
+	  
+	  <action name="edittopicinfo" class="UpdateTopicAction" >
+		 	<result type="xml">updatetopicinput</result>		 	
+	  </action>
+	  <action name="savetopicinfo" class="TopicAction" >
+		 	<result type="redirect" name="success" >topicmanagement.action</result>	 	
+	  </action>
+	  <!--
+	  <action name="savetopicinfo" class="InfoManageAction" method="saveTopicInfo">
+		 	<result type="redirect" name="success" >topicmanagement.action</result>			 	
+	  </action>
+	  -->
+	  <action name="deltopicinfo" class="InfoManageAction" method="delTopic">
+		 	<result type="redirect" name="success" >topicmanagement.action</result>			 	
+	  </action>
+	  <action name="viewtopicinfo" class="InfoManageAction" method="viewTopic">
+		 	<result name="success">viewtopicinfo.jsp</result>			 	
+	  </action>
+	</package>
+	
+</struts>

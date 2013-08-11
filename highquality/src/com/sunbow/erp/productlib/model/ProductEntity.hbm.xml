@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sunbow.erp.productlib.model">
+
+	<class name="ProductEntity" table="t_sunbow_erp_productlib_product">
+
+		<id name="id" column="eid" unsaved-value="null">
+			<generator class="native" />
+		</id>
+
+		<property name="modifyDate" column="f_modifyDate" />
+
+		<property name="createDate" column="f_createDate" />
+
+		<property name="productNo" column="f_productno" />
+		<property name="productName" column="f_product_name" />
+		<!-- 
+		<property name="productEnName" column="f_product_enname" />
+		<property name="type" column="f_type" />
+		<property name="oemName" column="f_oem_name" />
+		<property name="aliasName" column="f_alias_name" />
+		<property name="otherType" column="f_other_type" />
+		<property name="usedVendors" column="f_usedvendors" />
+		<property name="usedCarModel" column="f_usedcarmodel" />
+		 -->
+		<property name="picture" column="f_picture" />
+		<property name="price" column="f_price" />
+		<property name="inPrice" column="f_inprice" />
+		<property name="outPrice" column="f_outprice" />
+	
+		<!-- 
+		<property name="height" column="f_height" />
+		<property name="length" column="f_length" />
+		<property name="weight" column="f_weight" />
+		<property name="unit" column="f_unit" />
+		
+		<property name="propackage" column="f_package" />
+		<property name="hotSale" column="f_HotSale" />
+		-->
+		
+        <many-to-one name="productClassify"
+			class="com.sunbow.erp.productlib.model.ProductClassify" 
+			foreign-key="FK_t_productlib_product_classify" 
+			>
+			<column name="f_pclassify_id" />
+		</many-to-one>
+		
+	</class>
+
+</hibernate-mapping>

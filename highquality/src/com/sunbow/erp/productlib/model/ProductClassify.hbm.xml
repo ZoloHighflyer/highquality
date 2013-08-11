@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.sunbow.erp.productlib.model">
+
+	<class name="ProductClassify" 
+		table="t_sunbow_erp_productlib_productclassify">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="f_modifyDate"   />
+                  
+        <property name="createDate" 
+                  column="f_createDate"   />
+		
+		<property name="name"
+  				  column="f_name"
+				  />		
+
+		<property name="owner"
+			      column="f_owner"
+			      />
+	    <property name="categoryNo"
+			      column="f_pno"
+			      />
+	    
+	    <property name="parCategoryNo"
+			      column="f_parentcategory"
+			      />
+	   
+		
+        <set name="products"  lazy="true" inverse="true" 
+			cascade="all-delete-orphan"  order-by="f_modifyDate desc" >
+			<key>
+				<column name="f_pclassify_id" />
+			</key>
+			<one-to-many class="com.sunbow.erp.productlib.model.ProductEntity" />
+		</set>		
+	</class>
+    
+        
+</hibernate-mapping>

@@ -1,0 +1,292 @@
+
+/*==================================通用样式开始=========================================*/
+html {
+	height:100%;width:100%;margin:0px;padding:0px;
+	/*overflow-x:hidden; /*隐藏水平滚动条*/
+   	SCROLLBAR-HIGHLIGHT-COLOR: #D6EFEC; 
+	SCROLLBAR-BASE-COLOR:#D6EFEC ;
+	SCROLLBAR-SHADOW-COLOR: #D6EFEC; 
+	SCROLLBAR-3DLIGHT-COLOR: #85A2B4; 
+	SCROLLBAR-DARKSHADOW-COLOR: #85A2B4; 
+	SCROLLBAR-ARROW-COLOR: #030303; 
+	SCROLLBAR-TRACK-COLOR: #ffffff; 
+}
+BODY  
+{
+	word-break:break-all;
+	font-size : 9pt;
+	height:100%;width:100%;
+	margin:0px;
+	padding:0px;
+	background-color:White;
+} 
+A:link{TEXT-DECORATION:none;color:Navy;}
+A:hover{COLOR:#3592BE;text-decoration:none;}  /*3592BE*/
+A{font-weight:normal;font-style:normal;color:Navy;text-decoration:none;blr:expression(this.onFocus=this.blur());}
+
+td{font-size:9pt;vertical-align:middle;}
+
+DIV.Pager {padding-right:30px;}
+
+/*==================================通用样式结束=========================================*/
+
+
+/*==================================框架样式开始=========================================*/
+
+
+.TopMenuToolHome{background: url(../jscomponents/imgs/Window/Tool_Ico1.gif);background-repeat:no-repeat;}
+.TopMenuToolPersonal{background: url(../jscomponents/imgs/Window/Tool_Ico2.gif);background-repeat:no-repeat;}
+.TopMenuToolChangePassword{background: url(../jscomponents/imgs/Window/Tool_Ico3.gif);background-repeat:no-repeat;}
+.TopMenuToolHelp{background: url(../jscomponents/imgs/Window/Tool_Ico4.gif);background-repeat:no-repeat;}
+.TopMenuToolExit{background: url(../jscomponents/imgs/Window/Tool_Ico5.gif);background-repeat:no-repeat;}
+
+/*--页眉样式--*/
+#FrameHeader{background: url(../jscomponents/imgs/Window/Top_Logo_M.jpg);height:70px;position:relative;}
+    #FrameLogo{background: url(../jscomponents/imgs/Window/Top_Logo_Bg.jpg); width:654px;height:70px;float:left;}
+    #FrameTools{list-style-type: none;position:absolute;bottom:0px;right:0px;background: url(../jscomponents/imgs/Window/Bot_Bg_M.jpg);margin:0px;padding:0px;}
+        #FrameTools li{float:left;}
+        #FrameTools li a{padding-left:20px;}
+        .FrameToolsSplit{width:4px;background: url(../jscomponents/imgs/Window/Tool_FA.jpg);height:30px;margin:0px 10px 0px 10px;}
+        .FrameToolsHeader{list-style-type: none;background: url(../jscomponents/imgs/Window/Tool_Left.jpg); width:23px;height:30px;}
+        .FrameToolsItem{cursor:pointer;width:70px;line-height:30px;}
+    #Welcome{position: absolute; display:inline;top:15px;right: 15px;}
+    #Bulletin{position: absolute; display:inline;top:40px;left: 140px;right:500px;}
+   
+#AppMenu{position:absolute;top:10px;left:0px;list-style-type: none;}
+#AppMenu li{float:left;list-style-type:none;font-weight:bold;font-size:14px;cursor:pointer;color:#346998;}
+#AppMenu *{vertical-align:middle;}
+#Logo1 span{display:inline-block;background:url(../jscomponents/imgs/Logo1.png);width:480px;height:50px;}
+#Logo2 span{display:inline-block;background:url(../jscomponents/imgs/Logo2.png);width:480px;height:50px;}
+#Logo3 span{display:inline-block;background:url(../jscomponents/imgs/logo3.png);width:480px;height:50px;}
+#CurrentApp0 span{display:inline-block;background:url(../jscomponents/imgs/LogoIco1.png);width:50px;height:50px;}
+#CurrentApp1 span{display:inline-block;background:url(../jscomponents/imgs/LogoIco2.png);width:50px;height:50px;}
+#CurrentApp2 span{display:inline-block;background:url(../jscomponents/imgs/LogoIco3.png);width:50px;height:50px;}
+#CurrentApp3 span{display:inline-block;background:url(../jscomponents/imgs/LogoIco4.png);width:50px;height:50px;}
+#App0{background:url(../jscomponents/imgs/LogoIco1_S.png);width:35px;height:35px;margin:10px 10px 0px 10px;}
+#App1{background:url(../jscomponents/imgs/LogoIco2_S.png);width:35px;height:35px;margin:10px 10px 0px 10px;}
+#App2{background:url(../jscomponents/imgs/LogoIco3_S.png);width:35px;height:35px;margin:10px 10px 0px 10px;}
+#App3{background:url(../jscomponents/imgs/LogoIco4_S.png);width:35px;height:35px;margin:10px 10px 0px 10px;}
+
+/*--水平左右分隔栏样式--*/
+.HSplitShowButton{BACKGROUND: url(../jscomponents/imgs/Window/Left_Icon.gif);background-position:center center;display:inline-block;width:5px;height:50px;}
+.HSplitHiddenButton{BACKGROUND: url(../jscomponents/imgs/Window/Right_Icon.gif);background-position:center center;display:inline-block;width:5px;height:50px;}
+.HSplitColumn{cursor:pointer;background:#DFF1F8;}
+
+/*页脚样式*/
+#FrameFooter{background: url(../jscomponents/imgs/Window/Bot_Bg.jpg);height:29px;}
+
+
+/*==================================框架样式结束=========================================*/
+
+/*==================================表单样式开始=========================================*/
+
+/*表单样式*/
+.SheetBorder{}
+.SheetBody{overflow:auto;overflow-x:hidden;padding:10px;text-align:center;}	/**/
+.SheetHeader{white-space:nowrap;color:#3A3A3C;height:26px;border-bottom:solid 1px #FFFFFF;line-height:24px;
+              padding-top:3px; padding-left:10px; font-family: 宋体; background:url(../jscomponents/imgs/window/middle.jpg);
+}
+.ListSheetBody{overflow:auto;overflow-x:hidden;padding:20px;height:330px;}	/**/
+.EditSheetBody{overflow:auto;overflow-x:hidden;padding:20px;height:348px;}	/**/
+
+/*工具栏样式*/
+
+.ToolBar{height:30px;border-bottom:solid 1px #cccccc; background:url(../jscomponents/imgs/Window/Tool_Bg.gif);}
+.ToolBarButton{float:left;padding:4px; padding-left:10px;line-height:22px;vertical-align:middle;}
+.ToolBarQuery{float:right;display: block;vertical-align:middle;padding:4px; padding-right:10px;}
+
+.Explain{clear:both;height:52px;background:url(../jscomponents/imgs/Doc008.gif);border-bottom:solid 1px #cccccc;display:none;}
+.ExplainMiddle {float:left;left:55px; top: 50%;margin:3px 10px 0px 10px}
+.ExplainInner {top: -50%;line-height:22px;color:#51729D;}
+.ExplainImage{width:80px;height:52px;float:left;border-right:solid 1px #cccccc;background:url(../jscomponents/imgs/Doc007.gif);}
+.Explain *{vertical-align:middle}
+
+/*按钮样式*/
+a.button,input.button {
+	 background: transparent url(../jscomponents/imgs/Button/BtnNormalRight.gif) no-repeat scroll right top;
+	 color: #3D5C99;display: block;float: left;
+	 height: 23px;padding-right: 4px;font: normal 12px sans-serif;
+	 margin-right: 10px;text-decoration: none;cursor:pointer;
+   }
+a.button span,input.button span {background: transparent url(../jscomponents/imgs/Button/BtnNormalLeft.gif) no-repeat;display: block;padding: 5px 11px 5px 15px;line-height: 13px;}
+a.button:hover,input.button:hover {background-position: right -23px;}
+a.button:hover span {background-position: left -23px;}
+a.button:active {background-position: right -46px; outline:none}
+a.button:active span {background-position: left -46px;padding: 6px 11px 4px 15px;}
+a.button:active,input.button:active {background-position: right -46px;outline: none;}
+
+/*分隔线样式*/
+.SplitLine{background-color: #cccccc; height: 1px;overflow:hidden;line-height:1px;}
+
+/*列表页样式*/
+.Grid{overflow:auto;overflow-x:hidden;left:0px;right:0px;width:100%;}	/**/
+.GridMain{padding:10px; padding-right:24px;}
+.GridHeader{background:url(../jscomponents/imgs/Window/Table_Bg.jpg);white-space:nowrap;background-color:#EBF7FA;color:navy;height:29px;text-align:center;border-top:solid 1px white;border-left:solid 1px white;}
+.GridHeader *{vertical-align:middle;}
+.GridBodyA{background-color:#FFFFFF;color:Navy;text-align:center;padding:4px 4px 4px 4px;height:26px;}
+.GridBodyB{background-color:#F9F9Fd;color:Navy;text-align:center;padding:4px 4px 4px 4px;height:26px;}
+.GridBorder{background-color: #D5E0E6;width:99%;}
+.GridBodyA tr:hover{background-color:#FFFFFF;cursor:default}
+.GridBodyB tr:hover{background-color:#F9F9Fd;cursor:default}
+
+/*编辑页样式*/
+.EditHeader{white-space:nowrap;width:105px;background-color:#F9F9Fd;color:#1F2221;height:28px;text-align:right;border-top:solid 1px white;border-left:solid 1px white; padding-right:8px;}
+.EditBody{background-color:#FFFFFF;color:#474448;text-align:left;padding:4px 4px 4px 4px;}
+.EditBorder{background-color: #D5E0E6;width:99%;}
+
+.EditBorderPrint{background-color: black;width:99%;}
+
+.EditDivBody{overflow:auto;overflow-x:hidden;padding:10px;text-align:center;}	/**/
+
+.EditHead{white-space:nowrap;background-color:#F9F9Fd;color:navy;height:27px;width:13%;font-weight:500;font-family:宋体;font-color:#000;text-align:center;border-top:solid 1px #F9F9Fd;border-left:solid 1px #F9F9Fd;}
+.EditHead *{vertical-align:middle;}
+.EditRow{background-color:#FFFFFF;color:navy;height:27px;text-align:left;border-top:solid 1px white;border-left:solid 1px white;padding-left:5px;}
+.EditRow *{vertical-align:middle;}
+
+.EditHeadPrint{white-space:nowrap;background-color:white;color:black;height:27px;width:13%;font-weight:500;font-family:宋体;text-align:center;border-top:solid 1px #F9F9Fd;border-left:solid 1px #F9F9Fd;}
+.EditHeadPrint *{vertical-align:middle;}
+.EditRowPrint{background-color:white;color:black;height:27px;text-align:left;border-top:solid 1px white;border-left:solid 1px white;padding-left:5px;}
+.EditRowPrint *{vertical-align:middle;}
+.EditInput {height:20px;line-height:20px;float:left;border-color:#D5E0E6;border-width:1px;border-style:Solid;}
+.EditArea  {float:left;border-color:#D5E0E6;border-width:1px;border-style:Solid;padding-top:3px;padding-bottom:3px;}
+.EditTableBorder{background-color: #D5E0E6;}
+/*列表图标样式*/
+.Icon_Edit{background: url(../jscomponents/imgs/Window/Icon_Edit.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Edit_Over{background: url(../jscomponents/imgs/Window/Icon_Edit_Over.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Dispose{background: url(../jscomponents/imgs/Window/Icon_Dispose.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Dispose_Over{background: url(../jscomponents/imgs/Window/Icon_Dispose_Over.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Up{background: url(../jscomponents/imgs/Window/Icon_Up.gif) no-repeat;display:inline-block;float:left;height:16px;width:16px;cursor:pointer;}
+.Icon_Up_Over{background: url(../jscomponents/imgs/Window/Icon_Up_Over.gif) no-repeat;display:inline-block;float:left;height:16px;width:16px;cursor:pointer;}
+.Icon_Down{background: url(../jscomponents/imgs/Window/Icon_Down.gif) no-repeat;display:inline-block;float:left;height:16px;width:16px;cursor:pointer;}
+.Icon_Down_Over{background: url(../jscomponents/imgs/Window/Icon_Down_Over.gif) no-repeat;display:inline-block;float:left;height:16px;width:16px;cursor:pointer;}
+.Icon_Record{background: url(../jscomponents/imgs/Window/Icon_Record.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Record_Over{background: url(../jscomponents/imgs/Window/Icon_Record_Over.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Income{background: url(../jscomponents/imgs/Window/Icon_Income.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Income_Over{background: url(../jscomponents/imgs/Window/Icon_Income_Over.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Outcome{background: url(../jscomponents/imgs/Window/Icon_Outcome.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Outcome_Over{background: url(../jscomponents/imgs/Window/Icon_Outcome_Over.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Control{background: url(../jscomponents/imgs/Window/Icon_Control.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+.Icon_Control_Over{background: url(../jscomponents/imgs/Window/Icon_Control_Over.gif) no-repeat;display:inline-block;height:16px;width:16px;cursor:pointer;}
+
+/*提示内容样式*/
+.err{
+	width: 178px;
+	height: 20px;
+	float: left;
+	border: 1px solid #CC0000;
+	overflow: hidden;
+	line-height: 20px;
+	color: #CC0000;
+	background: url(../jscomponents/imgs/Window/Icon_Err.gif) no-repeat white 1px 1px;
+	text-indent: 23px;
+}
+.null{
+	width: 178px;
+	height: 20px;
+	float: left;
+	border: 1px solid #F60;
+	overflow: hidden;
+	line-height: 20px;
+	color: #F60;
+	background: url(../jscomponents/imgs/Window/Icon_Warning.gif) no-repeat white 1px 1px;
+	text-indent: 23px;
+}
+.exactness{
+	width: 178px;
+	height: 20px;
+	float: left;
+	border: 1px solid #66CC00;
+	overflow: hidden;
+	line-height: 20px;
+	color: #66CC00;
+	background: url(../jscomponents/imgs/Window/Icon_Proper.gif) no-repeat white 1px 1px;
+	text-indent: 23px;
+}
+
+/*==================================表单样式结束=========================================*/
+
+
+/*其它页样式*/
+.Menu_BG_Top{BACKGROUND: url(../jscomponents/imgs/left_top.gif) no-repeat;}
+.Menu_BG_Middle{BACKGROUND: url(../jscomponents/imgs/left_mid.gif) repeat-y;background-color:#ADD2DA}
+.Menu_BG_Bottom{BACKGROUND: url(../jscomponents/imgs/left_bot.gif) no-repeat;}
+
+.MainTop{background-color:#DFF1F8}
+.MainBackground{BACKGROUND: url(main/infobg.jpg);background-position:center;background-repeat:no-repeat;width:100%;height:500;}
+
+/*登录界面样式*/
+.Logo{BACKGROUND: url(../jscomponents/imgs/Login/top.JPG) no-repeat;float:left;width:349px;height:80px; margin-left:35px;}
+.topcolumn{ margin:60px 40px 0px 20px;}
+.Line1{display:none;}
+.Line2{height:180px;width:1px;}
+.Login{BACKGROUND: url(../jscomponents/imgs/Login/Login_Bg.png) no-repeat;float:left;width:270px;height:370px;margin-bottom:50px;margin-top:50px;margin-left:10px;}
+.AppText{line-height:30px;text-align:center;}
+#LoginHeader{width:896px;margin:0 auto;height:80px;}
+#LoginFooter{clear:both;margin:0 auto;width:896px; }
+#LoginFooterLeft{float:left;}
+#LoginFooterRight{float:left;}
+#LoginFooterCenter{float:left;text-align:center;color:#333333;width:820px;}
+#BulletinTitle{margin-left:25px;padding-left:15px;height:20px;background:url(../jscomponents/imgs/Login/Mas.gif) no-repeat;color:#35679A;font-size:medium;font-weight:bold;}
+#LoginContent{ background:url(../jscomponents/imgs/Login/Bg2.jpg); height:500px;width:820px;}
+#view{ padding-left:40px; margin-top:150px; width:450px;}
+
+/*用户控件样式*/
+.btnGo{clear:both;BACKGROUND: url(../jscomponents/imgs/Button/Btn_Go.gif) no-repeat;display:block;height:19px;width:19px;margin-left:4px;}
+.Pager{float:right;text-align:right;line-height:25px}
+.Pager *{vertical-align:middle;}
+
+.Btn_Cz{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Cz.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Cz_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Cz_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Save{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Save.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Save_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Save_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Add{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Add.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Add_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Add_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Back{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Back.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Back_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Back_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Delete{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Delete.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Delete_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Delete_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Refresh{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Refresh.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Refresh_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Refresh_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Seach{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Seach.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Seach_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Seach_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Submit{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Submit.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Submit_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Submit_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Excel{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Excel.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Excel_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Excel_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Print{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Print.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Print_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Print_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Preview{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Preview.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Preview_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Preview_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Recede{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Recede.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Recede_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Recede_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Provisional{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Provisional.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Provisional_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Provisional_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Record{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Record.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Record_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Record_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Close{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Close.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Close_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Close_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Eliminate{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Eliminate.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Eliminate_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Eliminate_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Select{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Select.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Select_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Select_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Change{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Change.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Change_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Change_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Sync{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Sync.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Sync_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Sync_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Control{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Control.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+.Btn_Control_Over{BACKGROUND: url(../jscomponents/imgs/Button/Btn_Control_Over.gif) no-repeat;display:block;float:left;height:23px;width:52px;margin-left:4px;cursor:pointer;padding-right:5px;}
+
+.Icon_Select{BACKGROUND: url(../jscomponents/imgs/Button/Icon_Select.gif) no-repeat;display:block;float:left;height:23px;width:23px;margin-left:5px;cursor:pointer;padding-right:3px;}
+.Icon_Select_Over{BACKGROUND: url(../jscomponents/imgs/Button/Icon_Select_Over.gif) no-repeat;display:block;float:left;height:23px;width:23px;margin-left:5px;cursor:pointer;padding-right:3px;}
+.Icon_Eliminate{BACKGROUND: url(../jscomponents/imgs/Button/Icon_Eliminate.gif) no-repeat;display:block;float:left;height:23px;width:23px;margin-left:2px;cursor:pointer;padding-right:2px;}
+.Icon_Eliminate_Over{BACKGROUND: url(../jscomponents/imgs/Button/Icon_Eliminate_Over.gif) no-repeat;display:block;float:left;height:23px;width:23px;margin-left:2px;cursor:pointer;padding-right:2px;}
+
+
+/*错误提示*/
+.errorBg{ background:url(error_bg.gif) no-repeat center middle; width:400px; height:300px; margin:50px;}
+
+
+
+
+/*==================================表单样式结束=========================================*/
+

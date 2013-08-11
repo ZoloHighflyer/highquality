@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bluecreation.erp.contact.model">
+
+	<class name="Contact" 
+		table="t_custmgmt_contact">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"  update="false" />
+        <property name="createDate" 
+                  column="createDate"  update="false" />
+		
+		<property name="name"
+  				  column="f_name"
+				  />
+			
+		<property name="shortName"
+			      column="f_shortname"
+			      />
+
+		<property name="mobile"
+			      column="f_mobile"
+			      />   
+		<property name="telNo"
+			      column="f_telno"
+			      />
+	    <property name="alternateTel"
+			      column="f_alternatetel"
+			      />      
+	    <property name="addr"
+			      column="f_addr"
+			      />      	      
+	    <property name="webSite"
+			      column="f_website"
+			      />
+		<property name="email"
+			      column="f_email"
+			      />
+		<property name="country"
+			      column="f_country"
+			      />
+		<property name="city"
+			      column="f_city"
+			      />
+		<property name="useProducts"
+			      column="f_useproducts"
+			      />
+		<property name="level"
+			      column="f_level"
+			      />
+	     <property name="trustMsg"
+			      column="f_trustmsg"
+			      />
+		 <property name="owner"
+			      column="f_owner"
+			      />
+	     <property name="remark"
+			      column="f_remark"
+			      />	      
+			      
+	</class>
+
+</hibernate-mapping>

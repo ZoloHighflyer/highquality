@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>	
+	<package name="sysmgt" extends="struts-default"  namespace="/sysmgt">
+	 
+	    <result-types>
+          <result-type name="xml" class="XmlResult" />
+        </result-types>
+       <action name="menumanagement" class="ManageMenuAction" >
+		 	<result type="xml">menumanagement</result>		 	
+	   </action>
+        <action name="menumgt" class="ManageMenuAction" >
+		 	<result type="xml">menuinput</result>		 	
+	    </action>
+	    <action name="viewfuncs" class="FuncManageAction" method="funcMain">
+		    <result  name="success">viewfuncs.jsp</result>
+		</action>
+		<action name="showfunc" class="FuncManageAction" method="showFunc">
+		 	<result name="success"  >viewfunc.jsp</result>		 	
+		</action>
+		<action name="addfunc" class="FuncManageAction" method="addFunc">
+		 	<result name="success" >createfunc.jsp</result>		 	
+		</action>
+		<action name="savefunc" class="FuncManageAction" method="saveFunc">
+		 	<result name="success" >createfuncsuccess.jsp</result>		 	
+		</action>
+		<action name="editinitfunc" class="FuncManageAction" method="initedit">
+		 	<result name="success">editfunc.jsp</result>		 	
+		</action>
+		<action name="delfunc" class="FuncManageAction" method="delete">
+		 	<result name="success" >delfuncsuccess.jsp</result>		 	
+		</action>
+		<action name="addopt" class="OptManageAction" method="addOpt">
+		 	<result name="success">createOpt.jsp</result>		 	
+		</action>
+		<action name="saveopt" class="OptManageAction" method="saveOpt">
+		 	<result name="success">createoptsuccess.jsp</result>		 	
+		</action>
+		<action name="editinitopt" class="OptManageAction" method="initedit">
+		 	<result name="success">editopt.jsp</result>		 	
+		</action>
+		 <action name="delopt" class="OptManageAction" method="delete">
+		 	<result name="success">createoptsuccess.jsp</result>		 	
+		</action>
+		<action name="viewdeps" class="DepManageAction" method="depsMain">
+		    <result  name="success">viewdeps.jsp</result>
+		</action>
+		<action name="showdep" class="DepManageAction" method="showDep">
+		    <result  name="success">viewdep.jsp</result>
+		</action>
+		<action name="adddep" class="DepManageAction" method="addDep">
+		 	<result name="success" >createdep.jsp</result>		 	
+		</action>
+		<action name="savedep" class="DepManageAction" method="saveDep">
+		 	<result  name="success" >createdepsuccess.jsp</result>		 	
+		</action>
+		<action name="editinitdep" class="DepManageAction" method="initedit">
+		 	<result name="success">editdep.jsp</result>		 	
+		</action>
+		<action name="deldep" class="DepManageAction" method="delete">
+		 	<result name="success">createdepsuccess.jsp</result>		 	
+		</action>
+		
+		<action name="viewusers" class="UserManagerAction" method="usersMain">
+		    <result  name="success">usermangement.jsp</result>
+		</action>
+		
+	    <action name="selectusers" class="UserManagerAction" method="selectUser">
+		    <result  name="success">/sysmgt/orgselect/app/offer_org_select.jsp</result>
+		</action>
+				
+		<action name="adduser">
+            <result >createuser.jsp</result>
+        </action>
+        <action name="saveuser" class="UserManagerAction" method="saveUser">
+		 		<result type="redirect" name="success">viewusers.action</result>		 	
+		</action>
+		<action name="editinituser" class="UserManagerAction" method="initedit">
+		 	<result name="success">edituser.jsp</result>		 	
+		</action>
+		<action name="deluser" class="UserManagerAction" method="delete">
+		 		<result type="redirect" name="success">viewusers.action</result>		 	
+		</action>
+		
+		<action name="viewgroups" class="GroupManagerAction" method="groupsMain">
+		    <result  name="success">groupmangement.jsp</result>
+		</action>		
+		<action name="addgroup" class="GroupManagerAction" method="addGroup">
+            <result name="success">creategroup.jsp</result>
+        </action>
+        <action name="savegroup" class="GroupManagerAction" method="saveGroup">
+		 		<result type="redirect" name="success">viewgroups.action</result>		 	
+		</action>
+		<action name="editinitgroup" class="GroupManagerAction" method="initedit">
+		 	<result name="success">editgroup.jsp</result>		 	
+		</action>
+		<action name="delgroup" class="GroupManagerAction" method="delete">
+		 		<result type="redirect" name="success">viewgroups.action</result>		 	
+		</action>
+		
+		<action name="viewroles" class="RoleManagerAction" method="rolesMain">
+		    <result  name="success">rolemangement.jsp</result>
+		</action>
+		<action name="addrole"   class="RoleManagerAction" method="addRole">
+            <result >createrole.jsp</result>
+        </action>
+        <action name="editinitrole" class="RoleManagerAction" method="initedit">
+		 	<result name="success">editrole.jsp</result>		 	
+		</action>
+		<action name="saverole" class="RoleManagerAction" method="saveRole">
+		 		<result type="redirect" name="success">viewroles.action</result>		 	
+		</action>
+		<action name="delrole" class="RoleManagerAction" method="delete">
+		 		<result type="redirect" name="success">viewroles.action</result>		 	
+		</action>
+		
+		<action name="dictypemgmt" class="DicMgmtAction" method="dicTypeMgmt">
+		 	<result name="success">dicmgmt.jsp</result>		 	
+	  </action>
+	  <action name="adddictype"   class="DicMgmtAction" method="initadd">
+            <result name="success">createdictype.jsp</result>
+       </action>
+        <action name="editdictype"   class="DicMgmtAction" method="editDicType">
+            <result name="success">editdictype.jsp</result>
+       </action>
+       
+       <action name="savedictype"   class="DicMgmtAction" method="saveDicType">
+            <result type="redirect" name="success">dictypemgmt.action</result>
+       </action>
+       <action name="deldictype"   class="DicMgmtAction" method="delDicType">
+            <result type="redirect" name="success">dictypemgmt.action</result>
+       </action>
+       <action name="dicentrymgmt" class="DicMgmtAction" method="dicEntryMgmt">
+		 	<result name="success">dicentrymgmt.jsp</result>		 	
+	  </action>
+	   <action name="adddicentry"   class="DicMgmtAction" method="addDicEntry">
+            <result name="success">createdicentry.jsp</result>
+       </action>
+       <action name="savedicentry"   class="DicMgmtAction" method="saveDicEntry">
+             <result type="redirect" name="success">dicentrymgmt.action?dicTypeVo.id=${dicTypeVo.id}</result>
+       </action>
+        <action name="editdicentry"   class="DicMgmtAction" method="editDicEntry">
+            <result name="success">editdicentry.jsp</result>
+       </action>
+       <action name="deldicentry"   class="DicMgmtAction" method="delDicEntry">
+             <result type="redirect" name="success">dicentrymgmt.action?dicTypeVo.id=${dicTypeVo.id}</result>
+       </action>
+       
+       <!-- 修改密码 -->
+       <action name="modifyPassWord" class="UserManagerAction" method="modifyPassWord">
+           <result name="success">/sysmgt/modifyPassWord.jsp</result>
+           <result name="error">/sysmgt/modifyPassWord.jsp</result>
+       </action>
+       
+	</package>
+	
+    
+</struts>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+   
+     <bean id="ManageMenuAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>sysmanagementService</value></property>
+        <property name="serviceName"><value>findAllMenus</value></property>
+        <property name="rtRS" value="true"/>
+        <property name="scope" value="SCOPE_REQUEST"/>        
+     </bean>
+     
+     <bean id="SaveMenuActionTest" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="clzName"><value>com.nci.cp.teaminfo.info.vo.EditableVo</value></property>
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>sysmanagementService</value></property>
+        <property name="serviceName"><value>createMenu</value></property>
+        <property name="input" value="true"/>   
+     </bean> 
+     
+     <bean id="SaveMenuAction" class="com.nci.cp.teaminfo.info.action.MenuAction" scope="request">
+        
+    </bean> 
+    
+     <bean id="LoginAction" class="com.nci.cp.core.sysmgt.action.LoginAction" scope="request">
+            <property name="sysMgmt" ref="sysmanagementService" />     
+      </bean>
+     <!-- system management action definitions end -->
+
+    <bean id="FuncManageAction" class="com.nci.cp.core.sysmgt.action.FuncManageAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean> 
+      <bean id="OptManageAction" class="com.nci.cp.core.sysmgt.action.OptAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean>
+     <bean id="DepManageAction" class="com.nci.cp.core.sysmgt.action.DepManageAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean>  
+     <bean id="UserManagerAction" class="com.nci.cp.core.sysmgt.action.UserManagerAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean>
+     <bean id="GroupManagerAction" class="com.nci.cp.core.sysmgt.action.GroupManagerAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean>
+     <bean id="RoleManagerAction" class="com.nci.cp.core.sysmgt.action.RoleManagerAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean>
+     <bean id="UserMenuAction" class="com.nci.cp.core.sysmgt.action.UserMenuAction" scope="request">
+        <property name="sysmgmtService" ref="sysmanagementService" />
+     </bean>
+     <bean id="DicMgmtAction" class="com.nci.cp.core.sysmgt.action.DicMgmtAction" scope="request">
+        <property name="dicMgmtService" ref="dicMgmtService" />
+     </bean>
+</beans>

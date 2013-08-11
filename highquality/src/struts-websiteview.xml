@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+	<package name="wsviews" extends="default" namespace="/admin/wsviews">
+	  <action name="wsviewmgmt" class="ViewMgmtAction" method="viewMgmt">
+		 	<result name="success">views.jsp</result>		 	
+	  </action>
+	  <action name="addView" class="ViewMgmtAction" method="addView">
+		 	<result name="success">createview.jsp</result>		 	
+	  </action>
+	  <action name="editView" class="ViewMgmtAction" method="initEditView">
+		 	<result name="success">editview.jsp</result>		 	
+	  </action>
+	  <action name="showView" class="ViewMgmtAction" method="initEditView">
+		 	<result name="success">view.jsp</result>		 	
+	  </action>	  
+	  <action name="saveView" class="ViewMgmtAction" method="saveView">
+		 	<result type="redirect" name="success">wsviewmgmt.action</result>			 	
+	  </action>
+	  <action name="deleteView" class="ViewMgmtAction" method="deleteView">
+		 	<result type="redirect" name="success">wsviewmgmt.action</result>			 	
+	  </action>
+	  <action name="findCategories" class="ViewMgmtAction" method="getAvailibleCategoritesXml">		  	
+	  </action>
+	  <action name="findProductByCid" class="ViewMgmtAction" method="getProductsByCid">		  	
+	  </action>
+	   <action name="findProductByViewId" class="ViewMgmtAction" method="getProductsByViewId">		  	
+	  </action>
+	</package>
+	
+</struts>

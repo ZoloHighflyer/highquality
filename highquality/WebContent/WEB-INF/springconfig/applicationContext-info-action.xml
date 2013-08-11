@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+     
+     <!-- service begin -->
+    <bean id="InfoManageAction" class="com.nci.cp.teaminfo.info.action.InfoManageAction" scope="request">
+        <property name="infoService" ref="infoService" />
+    </bean> 
+    <bean id="TopicAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="clzName"><value>com.nci.cp.teaminfo.info.vo.TopicInfoVo</value></property>
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>infoService</value></property>
+        <property name="serviceName"><value>createTopicInfoVo</value></property> 
+        <property name="input" value="true"/>           
+     </bean> 
+     <bean id="UpdateTopicAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="clzName"><value>com.nci.cp.teaminfo.info.vo.TopicInfoVo</value></property>
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>infoService</value></property>
+        <property name="serviceName"><value>findTopicInfo</value></property>
+        <property name="input" value="true"/>
+        <property name="rtRS" value="true"/>
+        <property name="scope" value="SCOPE_REQUEST"/>        
+     </bean> 
+     <bean id="ManageTopicAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>infoService</value></property>
+        <property name="serviceName"><value>findValidTopicInfoVos</value></property>
+        <property name="rtRS" value="true"/>
+        <property name="scope" value="SCOPE_REQUEST"/>        
+     </bean>
+     <bean id="InputTopicRecordAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="clzName"><value>com.nci.cp.teaminfo.info.vo.IRVo</value></property>
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>infoService</value></property>
+        <property name="serviceName"><value>buildInputIR</value></property>
+        <property name="rtRS" value="true"/>
+        <property name="scope" value="SCOPE_REQUEST"/>        
+     </bean> 
+     <bean id="SaveTopicRecordAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="clzName"><value>com.nci.cp.teaminfo.info.vo.IRVo</value></property>
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>infoService</value></property>
+        <property name="serviceName"><value>createInfoTopicRecord</value></property>         
+        <property name="input" value="true"/>       
+     </bean> 
+     <!-- sysmanagement  begin-->
+      <bean id="ManageMenuAction" class="com.nci.cp.core.web.action.DefaultStrutsAction" scope="request">
+        <property name="markid"><value>data</value></property>
+        <property name="beanid"><value>infoService</value></property>
+        <property name="serviceName"><value>findValidTopicInfoVos</value></property>
+        <property name="rtRS" value="true"/>
+        <property name="scope" value="SCOPE_REQUEST"/>        
+      </bean>
+      
+         
+     
+     <!-- sysmanagement  end -->
+    
+</beans>

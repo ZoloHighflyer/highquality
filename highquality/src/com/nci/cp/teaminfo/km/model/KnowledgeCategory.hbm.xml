@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.teaminfo.km.model">
+
+	<class name="KnowledgeCategory" 
+		table="t_km_infocategory">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+                  
+        <property name="createDate" 
+                  column="createDate"   />
+		
+		<property name="name"
+  				  column="f_name"
+				  />		
+
+		<property name="owner"
+			      column="f_owner"
+			      />
+	    <property name="parcategoryno"
+			      column="f_parentcategory"
+			      />
+	   
+		
+        <set name="infoRecords"  lazy="true" inverse="true" 
+			cascade="all-delete-orphan"  order-by="modifyDate desc" >
+			<key>
+				<column name="f_infocategory_id" />
+			</key>
+			<one-to-many class="com.nci.cp.teaminfo.km.model.KnowledgeRecord" />
+		</set>		
+	</class>
+    <query name="findAllCategories">
+         <![CDATA[select c from KnowledgeCategory c]]>
+    </query>
+        
+</hibernate-mapping>

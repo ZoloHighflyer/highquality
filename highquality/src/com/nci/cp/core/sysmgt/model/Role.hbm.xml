@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.core.sysmgt.model">
+
+	<class name="Role" table="t_role">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="createDate" column="createDate"   />
+        <property name="modifyDate" column="modifyDate"   />		
+		<property name="name" column="f_name"  />		
+		<property name="descr" column="f_descr" />			
+		
+		
+        <set name="roleNodes" lazy="true" cascade="all" outer-join="true" order-by="f_nodeid asc" >
+			<key>
+				<column name="f_roleid" />
+			</key>
+			<one-to-many class="com.nci.cp.core.sysmgt.model.RoleNode" />
+		</set>
+		
+	</class>
+    
+</hibernate-mapping>

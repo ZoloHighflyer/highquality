@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+<validation-config lang="auto">
+	<form id="createviewform" show-error="alert" show-type="all">
+		<field name="viewVo.name" display-name="视图名称" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="50" />
+		</field>
+		
+	</form>
+	<form id="editviewform" show-error="alert" show-type="all">
+		<field name="viewVo.name" display-name="视图名称" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="50" />
+		</field>
+		
+	</form>
+</validation-config>

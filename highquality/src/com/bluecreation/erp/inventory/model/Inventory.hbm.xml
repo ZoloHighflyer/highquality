@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bluecreation.erp.inventory.model">
+
+	<class name="Inventory" 
+		table="t_inventorymgmt_inventory">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"  update="false" />
+        <property name="createDate" 
+                  column="createDate"  update="false" />
+		
+		<property name="inventoryId"
+  				  column="f_inventoryid"
+				  />
+			
+		<property name="inventoryType"
+			      column="f_inventory_type"
+			      length="1200"/>
+
+		<property name="quantity"
+			      column="f_quantity"
+			      />       
+		
+	</class>
+
+</hibernate-mapping>

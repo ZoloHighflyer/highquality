@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+    
+    <!-- service begin -->
+   
+    <bean id="sysmanagementService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.nci.cp.core.sysmgt.service.SysManagement">
+                <property name="userDao"     ref="userDao"/>
+                <property name="groupDao"  ref="groupDao"/>                
+                <property name="depDao"  ref="depDao"/>
+                <property name="roleDao"  ref="roleDao"/>
+                <property name="roleNodeDao"  ref="roleNodeDao"/>
+                <property name="roleService"  ref="roleService"/>
+                <property name="funcService"  ref="funcService"/>
+                <property name="optService"  ref="optService"/>
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="roleService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.nci.cp.core.sysmgt.service.RoleService">
+                <property name="roleDao"  ref="roleDao"/>
+                <property name="roleNodeDao"  ref="roleNodeDao"/>
+                 <property name="funcDao"  ref="funcDao"/>
+                 <property name="optDao"  ref="optDao"/>
+            </bean>
+        </property>       
+    </bean>
+    <bean id="optService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.nci.cp.core.sysmgt.service.OptService">
+                <property name="optDao"  ref="optDao"/>                 
+            </bean>
+        </property>       
+    </bean> 
+    <bean id="funcService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.nci.cp.core.sysmgt.service.FuncService">
+                <property name="funcDao"  ref="funcDao"/>                 
+            </bean>
+        </property>       
+    </bean>
+    <bean id="dicMgmtService"  parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.nci.cp.core.sysmgt.service.DicMgmtService">
+                <property name="dicTypeDao"  ref="dicTypeDao"/>
+                <property name="dicEntryDao"  ref="dicEntryDao"/>                 
+            </bean>
+        </property>       
+    </bean> 
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bluecreation.erp.inventory.model">
+
+	<class name="InventoryBillItem" 
+		table="t_inventorymgmt_inventorybillitem">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+                  
+        <property name="createDate" 
+                  column="createDate"   />
+	
+		
+		<property name="storageItemId"
+  				  column="f_inventoryid"
+				  />
+			
+		<property name="storageItemType"
+  				  column="f_inventory_type"
+				  />
+		
+		<property name="quantity"
+  				  column="f_quantity"
+				  />
+		
+		<many-to-one name="inventoryBill" 
+                     column="f_inventory_billno" 
+                     class="com.bluecreation.erp.inventory.model.InventoryBill"
+                     cascade="all"
+                     outer-join="true"/>
+	   </class>
+      
+</hibernate-mapping>

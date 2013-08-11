@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.teaminfo.info.model">
+
+	<class name="InfoRecord" 
+		table="inforecord">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"  update="false" />
+        <property name="createDate" 
+                  column="createDate"  update="false" />
+		
+		<property name="title"
+  				  column="title"
+				  length="50"/>
+			
+		<property name="content"
+			      column="content"
+			      length="1200"/>
+
+		<property name="owner"
+			      column="owner"
+			      />
+	   	
+        <many-to-one name="topicinfo"
+		    unique="true"
+		    lazy="false"
+			class="com.nci.cp.teaminfo.info.model.TopicInfo" 
+			foreign-key="inforecord_topicinfo_FK" 
+			>
+			<column name="topicid" />
+		</many-to-one> 
+
+		
+	</class>
+
+</hibernate-mapping>

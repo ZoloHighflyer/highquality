@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.nci.cp.teaminfo.info.model">
+
+	<class name="TopicInfo" 
+		table="topicinfo">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+        <property name="createDate" 
+                  column="createDate"   />
+		
+		<property name="title"
+  				  column="title"
+				  length="50"/>
+		
+		<property name="curTitle"
+			      column="curTitle"
+			      length="50"/>
+			
+		<property name="curContent"
+			      column="curContent"
+			      length="1200"/>
+
+		<property name="owner"
+			      column="owner"
+			      />
+	    <property name="state"
+			      column="state"
+			      />
+        <set name="infoRecords"  lazy="true" inverse="true" 
+			cascade="all-delete-orphan"  order-by="modifyDate desc" >
+			<key>
+				<column name="topicid" />
+			</key>
+			<one-to-many class="com.nci.cp.teaminfo.info.model.InfoRecord" />
+		</set>
+		
+	</class>
+    <query name="findValidTopics">
+         <![CDATA[select t from TopicInfo t where t.state=1 order by t.modifyDate desc]]>
+    </query>
+</hibernate-mapping>

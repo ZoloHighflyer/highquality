@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+<validation-config lang="auto">
+	<form id="createdictypeform" show-error="alert" show-type="all">
+		<field name="dicTypeVo.name" display-name="字典类型名称" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="25" />
+		</field>
+		<field name="dicTypeVo.identifyCode" display-name="字典类型标识" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="100" />
+		</field>		
+	</form>
+	<form id="editdictypeform" show-error="alert" show-type="all">
+		<field name="dicTypeVo.name" display-name="字典类型名称" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="25" />
+		</field>
+		<field name="dicTypeVo.identifyCode" display-name="字典类型标识" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="100" />
+		</field>		
+	</form>
+    <form id="createdicentryform" show-error="alert" show-type="all">
+		<field name="dicEntryVo.name" display-name="字典类型值" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="100" />
+		</field>
+		<field name="dicEntryVo.identify" display-name="字典类型值代码" onfail="">
+			<depend name="required" />
+			<depend name="integer"/>
+		</field>		
+	</form>
+	<form id="editdicentryform" show-error="alert" show-type="all">
+		<field name="dicEntryVo.name" display-name="字典类型值" onfail="">
+			<depend name="required" />
+			<depend name="maxLength" param0="100" />
+		</field>
+		<field name="dicEntryVo.identify" display-name="字典类型值代码" onfail="">
+			<depend name="required" />
+			<depend name="integer" />
+		</field>			
+	</form>
+</validation-config>

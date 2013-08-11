@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bluecreation.erp.productmgt.model">
+
+	<class name="Fittings" 
+		table="t_erp_productmanagement_fittings">
+
+		<id name="id"  column="eid" unsaved-value="null">
+              <generator class="native" />
+        </id>
+        
+        <property name="modifyDate" 
+                  column="modifyDate"   />
+                  
+        <property name="createDate" 
+                  column="createDate"   />
+	
+		<property name="name"
+  				  column="f_fittings_name"
+				  />
+		
+		<property name="specification"
+  				  column="f_fittings_specification"
+				  />
+			
+		<property name="material"
+  				  column="f_fittings_material"
+				  />
+		
+		<property name="color"
+  				  column="f_fittings_color"
+				  />
+		
+		<property name="price"
+  				  column="f_fittings_price"
+				  />
+		
+		
+		<property name="mark"
+  				  column="f_fittings_mark"
+				  />
+				  
+		<property name="photo"
+  				  column="f_fittings_photo"
+				  />
+	   </class>
+      
+</hibernate-mapping>

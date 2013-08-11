@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+	<package name="fittings" extends="default" namespace="/admin/fittings">
+	  <action name="ftmanagement" class="FtMgmtAction" method="fittingsMgmt">
+		 	<result name="success">fittingsmgmt.jsp</result>		 	
+	  </action>
+	  <action name="addfitting" class="FtMgmtAction" method="addFitting">
+		 	<result name="success">createfitting.jsp</result>		 	
+	  </action>
+	  <action name="savefitting" class="FtMgmtAction" method="saveFitting">
+		    <interceptor-ref name="fileUpload" >
+		    <param name="maximumSize">409600</param>
+		    <param name="allowedTypes">image/bmp,image/png,image/gif,image/pjpeg</param>
+		    </interceptor-ref>
+            <interceptor-ref name="crudStack" />
+		 	<result type="redirect" name="success">ftmanagement.action</result>	
+		 	<result  name="input">createfitting.jsp</result>	
+		 	<result  name="error">createfitting.jsp</result>	
+	   </action>
+	   <action name="editfitting" class="FtMgmtAction" method="initEdit">
+		 	<result name="success">editfitting.jsp</result>		 	
+	   </action>
+	   
+	   <action name="delfitting" class="FtMgmtAction" method="delFitting">
+		 	<result type="redirect" name="success">ftmanagement.action</result>		 	
+	   </action>
+	    <action name="viewfitting" class="FtMgmtAction" method="viewFitting">
+		 	<result name="success">viewfitting.jsp</result>		 	
+	 </action>
+	   <action name="productmgmt" class="ProductMgmtAction" method="productMgmt">
+		 	<result name="success">productmgmt.jsp</result>		 	
+	  </action>
+	  <action name="addproduct" class="ProductMgmtAction" method="addProduct">
+		 	<result name="success">createproduct.jsp</result>		 	
+	  </action>
+	  <action name="saveproduct" class="ProductMgmtAction" method="saveProduct">
+		 	<interceptor-ref name="fileUpload" >
+		    <param name="maximumSize">409600</param>
+		    <param name="allowedTypes">image/bmp,image/png,image/gif,image/pjpeg</param>
+		    </interceptor-ref>
+            <interceptor-ref name="crudStack" />
+		 	<result type="redirect" name="success">productmgmt.action</result>	
+		 	<result  name="input">createproduct.jsp</result>	
+		 	<result  name="error">createproduct.jsp</result>	
+    </action>
+    <action name="editproduct" class="ProductMgmtAction" method="initedit">
+		 	<result name="success">editproduct.jsp</result>		 	
+	 </action>
+	  <action name="viewproduct" class="ProductMgmtAction" method="viewProduct">
+		 	<result name="success">viewproduct.jsp</result>		 	
+	 </action>
+     <action name="delproduct" class="ProductMgmtAction" method="delProduct">
+		 	<result type="redirect" name="success">productmgmt.action</result>	 	
+	 </action>
+	 <action name="inventorymgmt" class="InventoryMgmtAction" method="inventoryMgmt">
+		 	<result name="success">inventorymgmt.jsp</result>		 	
+	  </action>
+	  
+	  <action name="inventorybillmgmt" class="InventoryBillMgmtAction" method="inventoryBillMgmt">
+		 	<result name="success">inventorybillmgmt.jsp</result>		 	
+	  </action>
+	  <action name="addinventorybill" class="InventoryBillMgmtAction" method="addInventoryBill">
+		 	<result name="success">createinventorybill.jsp</result>		 	
+	  </action>
+	  <action name="saveinventorybill" class="InventoryBillMgmtAction" method="saveInventoryBill">		 	
+		 	<result type="redirect" name="success">inventorybillmgmt.action</result>	
+      </action>
+      <action name="viewinventorybill" class="InventoryBillMgmtAction" method="viewInventoryBill">
+		 	<result name="success">viewinventorybill.jsp</result>		 	
+	 </action>
+	  <action name="editinventorybill" class="InventoryBillMgmtAction" method="initeditBill">
+		 	<result name="success">editinventorybill.jsp</result>		 	
+	 </action>
+	 <action name="auditinventorybill" class="InventoryBillMgmtAction" method="auditInventoryBill">
+		 	<result type="redirect" name="success">waitinventorybillmgmt.action</result>		 	
+	  </action>
+	  <action name="recedeinventorybill" class="InventoryBillMgmtAction" method="recedeInventoryBill">
+		 	<result type="redirect" name="success">waitinventorybillmgmt.action</result>	 	
+	  </action>
+	  <action name="submitinventorybill" class="InventoryBillMgmtAction" method="submitInventoryBill">
+		 	<result type="redirect" name="success">inventorybillmgmt.action</result>		 	
+	  </action>
+	  
+	  <action name="delinventorybill" class="InventoryBillMgmtAction" method="delInventoryBill">		 	
+		 	<result type="redirect" name="success">inventorybillmgmt.action</result>	
+      </action>
+      <action name="waitinventorybillmgmt" class="InventoryBillMgmtAction" method="waittingInventoryBillMgmt">
+		 	<result name="success">waitinventorybillmgmt.jsp</result>		 	
+	  </action>
+	   <action name="auditedinventorybillmgmt" class="InventoryBillMgmtAction" method="auditedInventoryBillMgmt">
+		 	<result name="success">auditedinventorybillmgmt.jsp</result>		 	
+	  </action>
+	  
+	  <action name="contactmgmt" class="ContactAction" method="contactMgmt">
+		 	<result name="success">contactmgmt.jsp</result>		 	
+	  </action>
+	  <action name="addcontact" class="ContactAction" method="initadd">
+		 	<result name="success">createcontact.jsp</result>		 	
+	  </action>
+	  <action name="savecontact" class="ContactAction" method="saveContact">		 	
+		 	<result type="redirect" name="success">contactmgmt.action</result>	
+      </action>
+	</package>
+	
+</struts>
